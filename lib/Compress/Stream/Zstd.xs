@@ -15,25 +15,25 @@ extern "C" {
 #include "zstd.h"
 #include "compress/zstdmt_compress.h"
 
-typedef struct Compress__Zstd__Compressor_s {
+typedef struct Compress__Stream__Zstd__Compressor_s {
     ZSTD_CStream* stream;
     char* buf;
     size_t bufsize;
-}* Compress__Zstd__Compressor;
+}* Compress__Stream__Zstd__Compressor;
 
-typedef struct Compress__Zstd__Decompressor_s {
+typedef struct Compress__Stream__Zstd__Decompressor_s {
     ZSTD_DStream* stream;
     char* buf;
     size_t bufsize;
-}* Compress__Zstd__Decompressor;
+}* Compress__Stream__Zstd__Decompressor;
 
-typedef ZSTD_CCtx* Compress__Zstd__CompressionContext;
+typedef ZSTD_CCtx* Compress__Stream__Zstd__CompressionContext;
 
-typedef ZSTD_DCtx* Compress__Zstd__DecompressionContext;
+typedef ZSTD_DCtx* Compress__Stream__Zstd__DecompressionContext;
 
-typedef ZSTD_CDict* Compress__Zstd__CompressionDictionary;
+typedef ZSTD_CDict* Compress__Stream__Zstd__CompressionDictionary;
 
-typedef ZSTD_DDict* Compress__Zstd__DecompressionDictionary;
+typedef ZSTD_DDict* Compress__Stream__Zstd__DecompressionDictionary;
 
 static SV*
 decompress_using_streaming(pTHX_ const char* src, size_t srcSize)
@@ -211,7 +211,7 @@ new(klass, level = 1)
     const char* klass;
     int level;
 PREINIT:
-    Compress__Zstd__Compressor self;
+    Compress__Stream__Zstd__Compressor self;
     char* buf;
     size_t bufsize;
 CODE:
@@ -221,7 +221,7 @@ CODE:
     }
     ZSTD_initCStream(stream, level);
 
-    Newx(self, sizeof(struct Compress__Zstd__Compressor_s), struct Compress__Zstd__Compressor_s);
+    Newx(self, sizeof(struct Compress__Stream__Zstd__Compressor_s), struct Compress__Stream__Zstd__Compressor_s);
     self->stream = stream;
     bufsize = ZSTD_CStreamOutSize();
     Newx(buf, bufsize, char);
@@ -323,7 +323,7 @@ Compress::Stream::Zstd::Decompressor
 new(klass)
     const char* klass;
 PREINIT:
-    Compress__Zstd__Decompressor self;
+    Compress__Stream__Zstd__Decompressor self;
     char* buf;
     size_t bufsize;
 CODE:
@@ -333,7 +333,7 @@ CODE:
     }
     ZSTD_initDStream(stream);
 
-    Newx(self, sizeof(struct Compress__Zstd__Decompressor_s), struct Compress__Zstd__Decompressor_s);
+    Newx(self, sizeof(struct Compress__Stream__Zstd__Decompressor_s), struct Compress__Stream__Zstd__Decompressor_s);
     self->stream = stream;
     bufsize = ZSTD_DStreamOutSize();
     Newx(buf, bufsize, char);
@@ -393,7 +393,7 @@ CODE:
     if (cctx == NULL) {
         croak("Failed to call ZSTD_createCCtx()");
     }
-    RETVAL = (Compress__Zstd__CompressionContext) cctx;
+    RETVAL = (Compress__Stream__Zstd__CompressionContext) cctx;
 OUTPUT:
     RETVAL
 
@@ -474,7 +474,7 @@ CODE:
     if (dctx == NULL) {
         croak("Failed to call ZSTD_createDCtx()");
     }
-    RETVAL = (Compress__Zstd__DecompressionContext) dctx;
+    RETVAL = (Compress__Stream__Zstd__DecompressionContext) dctx;
 OUTPUT:
     RETVAL
 
@@ -572,7 +572,7 @@ CODE:
     if (cdict == NULL) {
         croak("Failed to call ZSTD_createCDict()");
     }
-    RETVAL = (Compress__Zstd__CompressionDictionary) cdict;
+    RETVAL = (Compress__Stream__Zstd__CompressionDictionary) cdict;
 OUTPUT:
     RETVAL
 
@@ -600,7 +600,7 @@ CODE:
     if (ddict == NULL) {
         croak("Failed to call ZSTD_createDDict()");
     }
-    RETVAL = (Compress__Zstd__DecompressionDictionary) ddict;
+    RETVAL = (Compress__Stream__Zstd__DecompressionDictionary) ddict;
 OUTPUT:
     RETVAL
 
