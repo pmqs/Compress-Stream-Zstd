@@ -1,10 +1,10 @@
-package Compress::Zstd::Compressor;
+package Compress::Stream::Zstd::Compressor;
 use 5.008001;
 use strict;
 use warnings;
 use Exporter 'import';
 
-use Compress::Zstd ();
+use Compress::Stream::Zstd ();
 
 our @EXPORT = qw(
     ZSTD_CSTREAM_IN_SIZE
@@ -17,13 +17,13 @@ __END__
 
 =head1 NAME
 
-Compress::Zstd::Compressor - Zstd streaming compression
+Compress::Stream::Zstd::Compressor - Zstd streaming compression
 
 =head1 SYNOPSIS
 
-    use Compress::Zstd::Compressor qw(ZSTD_CSTREAM_IN_SIZE);
+    use Compress::Stream::Zstd::Compressor qw(ZSTD_CSTREAM_IN_SIZE);
 
-    my $compressor = Compress::Zstd::Compressor->new($level);
+    my $compressor = Compress::Stream::Zstd::Compressor->new($level);
     while (read($fh, my $buffer, ZSTD_CSTREAM_IN_SIZE)) {
         print $compressor->compress($buffer);
     }
@@ -31,13 +31,13 @@ Compress::Zstd::Compressor - Zstd streaming compression
 
 =head1 DESCRIPTION
 
-The Compress::Zstd::Compressor module provides a streaming interface to the Zstd compressor.
+The Compress::Stream::Zstd::Compressor module provides a streaming interface to the Zstd compressor.
 
 =head1 METHODS
 
-=head2 Compress::Zstd::Compressor->new([$level]) :Compress::Zstd::Compressor
+=head2 Compress::Stream::Zstd::Compressor->new([$level]) :Compress::Stream::Zstd::Compressor
 
-Create an instance of Compress::Zstd::Compressor.
+Create an instance of Compress::Stream::Zstd::Compressor.
 
 =head2 $compressor->init([$level]) :Undef
 

@@ -72,11 +72,11 @@ decompress_using_streaming(pTHX_ const char* src, size_t srcSize)
     return output;
 }
 
-MODULE = Compress::Zstd PACKAGE = Compress::Zstd
+MODULE = Compress::Stream::Zstd PACKAGE = Compress::Stream::Zstd
 
 BOOT:
 {
-    HV* stash = gv_stashpv("Compress::Zstd", 1);
+    HV* stash = gv_stashpv("Compress::Stream::Zstd", 1);
     newCONSTSUB(stash, "ZSTD_VERSION_NUMBER", newSViv(ZSTD_VERSION_NUMBER));
     newCONSTSUB(stash, "ZSTD_VERSION_STRING", newSVpvs(ZSTD_VERSION_STRING));
     newCONSTSUB(stash, "ZSTD_MAX_CLEVEL", newSViv(ZSTD_maxCLevel()));
@@ -196,17 +196,17 @@ PPCODE:
     PUSHs(dest);
     XSRETURN(1);
 
-MODULE = Compress::Zstd PACKAGE = Compress::Zstd::Compressor
+MODULE = Compress::Stream::Zstd PACKAGE = Compress::Stream::Zstd::Compressor
 
 PROTOTYPES: DISABLE
 
 BOOT:
 {
-    HV* stash = gv_stashpv("Compress::Zstd::Compressor", 1);
+    HV* stash = gv_stashpv("Compress::Stream::Zstd::Compressor", 1);
     newCONSTSUB(stash, "ZSTD_CSTREAM_IN_SIZE", newSViv(ZSTD_CStreamInSize()));
 }
 
-Compress::Zstd::Compressor
+Compress::Stream::Zstd::Compressor
 new(klass, level = 1)
     const char* klass;
     int level;
@@ -233,14 +233,14 @@ OUTPUT:
 
 void
 init(self, level = 1)
-    Compress::Zstd::Compressor self;
+    Compress::Stream::Zstd::Compressor self;
     int level;
 CODE:
     ZSTD_initCStream(self->stream, level);
 
 SV*
 compress(self, input)
-    Compress::Zstd::Compressor self;
+    Compress::Stream::Zstd::Compressor self;
     SV* input;
 PREINIT:
     STRLEN len;
@@ -263,7 +263,7 @@ OUTPUT:
 
 SV*
 flush(self)
-    Compress::Zstd::Compressor self;
+    Compress::Stream::Zstd::Compressor self;
 PREINIT:
     SV* output;
     size_t ret;
@@ -283,7 +283,7 @@ OUTPUT:
 
 SV*
 end(self)
-    Compress::Zstd::Compressor self;
+    Compress::Stream::Zstd::Compressor self;
 PREINIT:
     SV* output;
     size_t ret;
@@ -303,23 +303,23 @@ OUTPUT:
 
 void
 DESTROY(self)
-    Compress::Zstd::Compressor self;
+    Compress::Stream::Zstd::Compressor self;
 CODE:
     ZSTD_freeCStream(self->stream);
     Safefree(self->buf);
     Safefree(self);
 
-MODULE = Compress::Zstd PACKAGE = Compress::Zstd::Decompressor
+MODULE = Compress::Stream::Zstd PACKAGE = Compress::Stream::Zstd::Decompressor
 
 PROTOTYPES: DISABLE
 
 BOOT:
 {
-    HV* stash = gv_stashpv("Compress::Zstd::Decompressor", 1);
+    HV* stash = gv_stashpv("Compress::Stream::Zstd::Decompressor", 1);
     newCONSTSUB(stash, "ZSTD_DSTREAM_IN_SIZE", newSViv(ZSTD_DStreamInSize()));
 }
 
-Compress::Zstd::Decompressor
+Compress::Stream::Zstd::Decompressor
 new(klass)
     const char* klass;
 PREINIT:
@@ -345,13 +345,13 @@ OUTPUT:
 
 void
 init(self)
-    Compress::Zstd::Decompressor self;
+    Compress::Stream::Zstd::Decompressor self;
 CODE:
     ZSTD_initDStream(self->stream);
 
 SV*
 decompress(self, input)
-    Compress::Zstd::Decompressor self;
+    Compress::Stream::Zstd::Decompressor self;
     SV* input;
 PREINIT:
     STRLEN len;
@@ -374,18 +374,18 @@ OUTPUT:
 
 void
 DESTROY(self)
-    Compress::Zstd::Decompressor self;
+    Compress::Stream::Zstd::Decompressor self;
 CODE:
     ZSTD_freeDStream(self->stream);
     Safefree(self->buf);
     Safefree(self);
 
 
-MODULE = Compress::Zstd PACKAGE = Compress::Zstd::CompressionContext
+MODULE = Compress::Stream::Zstd PACKAGE = Compress::Stream::Zstd::CompressionContext
 
 PROTOTYPES: DISABLE
 
-Compress::Zstd::CompressionContext
+Compress::Stream::Zstd::CompressionContext
 new(klass)
     const char* klass;
 CODE:
@@ -399,7 +399,7 @@ OUTPUT:
 
 SV*
 compress(self, source, level = 1)
-    Compress::Zstd::CompressionContext self;
+    Compress::Stream::Zstd::CompressionContext self;
     SV* source;
     int level;
 PREINIT:
@@ -428,9 +428,9 @@ PPCODE:
 
 SV*
 compress_using_dict(self, source, dict)
-    Compress::Zstd::CompressionContext self;
+    Compress::Stream::Zstd::CompressionContext self;
     SV* source;
-    Compress::Zstd::CompressionDictionary dict;
+    Compress::Stream::Zstd::CompressionDictionary dict;
 PREINIT:
     const char* src;
     STRLEN src_len;
@@ -457,16 +457,16 @@ PPCODE:
 
 void
 DESTROY(self)
-    Compress::Zstd::CompressionContext self;
+    Compress::Stream::Zstd::CompressionContext self;
 CODE:
     ZSTD_freeCCtx((ZSTD_CCtx*) self);
 
 
-MODULE = Compress::Zstd PACKAGE = Compress::Zstd::DecompressionContext
+MODULE = Compress::Stream::Zstd PACKAGE = Compress::Stream::Zstd::DecompressionContext
 
 PROTOTYPES: DISABLE
 
-Compress::Zstd::DecompressionContext
+Compress::Stream::Zstd::DecompressionContext
 new(klass)
     const char* klass;
 CODE:
@@ -480,7 +480,7 @@ OUTPUT:
 
 SV*
 decompress(self, source)
-    Compress::Zstd::DecompressionContext self;
+    Compress::Stream::Zstd::DecompressionContext self;
     SV* source;
 ALIAS:
     uncompress = 1
@@ -515,9 +515,9 @@ PPCODE:
 
 SV*
 decompress_using_dict(self, source, dict)
-    Compress::Zstd::DecompressionContext self;
+    Compress::Stream::Zstd::DecompressionContext self;
     SV* source;
-    Compress::Zstd::DecompressionDictionary dict;
+    Compress::Stream::Zstd::DecompressionDictionary dict;
 PREINIT:
     const char* src;
     STRLEN src_len;
@@ -549,15 +549,15 @@ PPCODE:
 
 void
 DESTROY(self)
-    Compress::Zstd::DecompressionContext self;
+    Compress::Stream::Zstd::DecompressionContext self;
 CODE:
     ZSTD_freeDCtx((ZSTD_DCtx*) self);
 
-MODULE = Compress::Zstd PACKAGE = Compress::Zstd::CompressionDictionary
+MODULE = Compress::Stream::Zstd PACKAGE = Compress::Stream::Zstd::CompressionDictionary
 
 PROTOTYPES: DISABLE
 
-Compress::Zstd::CompressionDictionary
+Compress::Stream::Zstd::CompressionDictionary
 new(klass, dict, level = 1)
     const char* klass;
     SV* dict;
@@ -578,15 +578,15 @@ OUTPUT:
 
 void
 DESTROY(self)
-    Compress::Zstd::CompressionDictionary self;
+    Compress::Stream::Zstd::CompressionDictionary self;
 CODE:
     ZSTD_freeCDict((ZSTD_CDict*) self);
 
-MODULE = Compress::Zstd PACKAGE = Compress::Zstd::DecompressionDictionary
+MODULE = Compress::Stream::Zstd PACKAGE = Compress::Stream::Zstd::DecompressionDictionary
 
 PROTOTYPES: DISABLE
 
-Compress::Zstd::DecompressionDictionary
+Compress::Stream::Zstd::DecompressionDictionary
 new(klass, dict)
     const char* klass;
     SV* dict;
@@ -606,6 +606,6 @@ OUTPUT:
 
 void
 DESTROY(self)
-    Compress::Zstd::DecompressionDictionary self;
+    Compress::Stream::Zstd::DecompressionDictionary self;
 CODE:
     ZSTD_freeDDict((ZSTD_DDict*) self);

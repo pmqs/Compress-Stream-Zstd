@@ -4,7 +4,7 @@ use warnings;
 use Test::More;
 
 BEGIN {
-    use_ok('Compress::Zstd');
+    use_ok('Compress::Stream::Zstd');
 };
 
 done_testing;

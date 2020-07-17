@@ -1,4 +1,4 @@
-package Compress::Zstd;
+package Compress::Stream::Zstd;
 use 5.008001;
 use strict;
 use warnings;
@@ -26,18 +26,18 @@ __END__
 
 =head1 NAME
 
-Compress::Zstd - Perl interface to the Zstd (Zstandard) (de)compressor
+Compress::Stream::Zstd - Perl interface to the Zstd (Zstandard) (de)compressor
 
 =head1 SYNOPSIS
 
-    use Compress::Zstd;
+    use Compress::Stream::Zstd;
 
     my $compressed = compress($bytes);
     my $decompressed = decompress($compressed);
 
 =head1 DESCRIPTION
 
-The Compress::Zstd module provides an interface to the Zstd (de)compressor.
+The Compress::Stream::Zstd module provides an interface to the Zstd (de)compressor.
 
 =head1 FUNCTIONS
 

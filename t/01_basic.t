@@ -2,7 +2,7 @@ use strict;
 use warnings;
 
 use Test::More;
-use Compress::Zstd;
+use Compress::Stream::Zstd;
 
 my $src = 'Hello, World!';
 ok my $compressed = compress($src, 42);

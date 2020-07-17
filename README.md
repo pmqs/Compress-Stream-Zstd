@@ -1,18 +1,18 @@
 [![Build Status](https://travis-ci.org/spiritloose/Compress-Zstd.svg?branch=master)](https://travis-ci.org/spiritloose/Compress-Zstd)
 # NAME
 
-Compress::Zstd - Perl interface to the Zstd (Zstandard) (de)compressor
+Compress::Stream::Zstd - Perl interface to the Zstd (Zstandard) (de)compressor
 
 # SYNOPSIS
 
-    use Compress::Zstd;
+    use Compress::Stream::Zstd;
 
     my $compressed = compress($bytes);
     my $decompressed = decompress($compressed);
 
 # DESCRIPTION
 
-The Compress::Zstd module provides an interface to the Zstd (de)compressor.
+The Compress::Stream::Zstd module provides an interface to the Zstd (de)compressor.
 
 # FUNCTIONS
 

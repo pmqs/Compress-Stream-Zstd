@@ -1,9 +1,9 @@
-package Compress::Zstd::DecompressionDictionary;
+package Compress::Stream::Zstd::DecompressionDictionary;
 use 5.008001;
 use strict;
 use warnings;
 
-use Compress::Zstd ();
+use Compress::Stream::Zstd ();
 
 sub new_from_file {
     my ($class, $file) = @_;
@@ -21,34 +21,34 @@ __END__
 
 =head1 NAME
 
-Compress::Zstd::DecompressionDictionary - Zstd decompression dictionary
+Compress::Stream::Zstd::DecompressionDictionary - Zstd decompression dictionary
 
 =head1 SYNOPSIS
 
-    use Compress::Zstd::DecompressionContext;
-    use Compress::Zstd::DecompressionDictionary;
+    use Compress::Stream::Zstd::DecompressionContext;
+    use Compress::Stream::Zstd::DecompressionDictionary;
 
-    my $ddict = Compress::Zstd::DecompressionDictionary->new_from_file($filename);
-    my $dctx = Compress::Zstd::DecompressionContext->new;
+    my $ddict = Compress::Stream::Zstd::DecompressionDictionary->new_from_file($filename);
+    my $dctx = Compress::Stream::Zstd::DecompressionContext->new;
     my $dest = $cctx->decompress_using_dict($src, $ddict);
 
 =head1 DESCRIPTION
 
-(Experimental) The Compress::Zstd::DecompressionDictionary module provides Zstd decompression dictionaries.
+(Experimental) The Compress::Stream::Zstd::DecompressionDictionary module provides Zstd decompression dictionaries.
 
 =head1 METHODS
 
-=head2 Compress::Zstd::DecompressionDictionary->new($dict) :Compress::Zstd::DecompressionDictionary
+=head2 Compress::Stream::Zstd::DecompressionDictionary->new($dict) :Compress::Stream::Zstd::DecompressionDictionary
 
-Create an instance of Compress::Zstd::DecompressionDictionary.
+Create an instance of Compress::Stream::Zstd::DecompressionDictionary.
 
-=head2 Compress::Zstd::DecompressionDictionary->new_from_file($filename) :Compress::Zstd::DecompressionDictionary
+=head2 Compress::Stream::Zstd::DecompressionDictionary->new_from_file($filename) :Compress::Stream::Zstd::DecompressionDictionary
 
-Create an instance of Compress::Zstd::DecompressionDictionary from file.
+Create an instance of Compress::Stream::Zstd::DecompressionDictionary from file.
 
 =head1 SEE ALSO
 
-L<Compress::Zstd>
+L<Compress::Stream::Zstd>
 
 =head1 LICENSE
 

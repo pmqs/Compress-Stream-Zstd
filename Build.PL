@@ -42,7 +42,7 @@ my %args = (
     },
 
     name            => 'Compress-Zstd',
-    module_name     => 'Compress::Zstd',
+    module_name     => 'Compress::Stream::Zstd',
     allow_pureperl => 0,
 
     script_files => [glob('script/*'), glob('bin/*')],

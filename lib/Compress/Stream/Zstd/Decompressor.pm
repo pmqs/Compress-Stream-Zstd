@@ -1,10 +1,10 @@
-package Compress::Zstd::Decompressor;
+package Compress::Stream::Zstd::Decompressor;
 use 5.008001;
 use strict;
 use warnings;
 use Exporter 'import';
 
-use Compress::Zstd ();
+use Compress::Stream::Zstd ();
 
 our @EXPORT = qw(
     ZSTD_DSTREAM_IN_SIZE
@@ -17,26 +17,26 @@ __END__
 
 =head1 NAME
 
-Compress::Zstd::Decompressor - Zstd streaming decompression
+Compress::Stream::Zstd::Decompressor - Zstd streaming decompression
 
 =head1 SYNOPSIS
 
-    use Compress::Zstd::Decompressor qw(ZSTD_DSTREAM_IN_SIZE);
+    use Compress::Stream::Zstd::Decompressor qw(ZSTD_DSTREAM_IN_SIZE);
 
-    my $decompressor = Compress::Zstd::Decompressor->new;
+    my $decompressor = Compress::Stream::Zstd::Decompressor->new;
     while (read($fh, my $buffer, ZSTD_DSTREAM_IN_SIZE)) {
         print $decompressor->decompress($buffer);
     }
 
 =head1 DESCRIPTION
 
-The Compress::Zstd::Decompressor module provides a streaming interface to the Zstd decompressor.
+The Compress::Stream::Zstd::Decompressor module provides a streaming interface to the Zstd decompressor.
 
 =head1 METHODS
 
-=head2 Compress::Zstd::Decompressor->new() :Compress::Zstd::Decompressor
+=head2 Compress::Stream::Zstd::Decompressor->new() :Compress::Stream::Zstd::Decompressor
 
-Create an instance of Compress::Zstd::Decompressor.
+Create an instance of Compress::Stream::Zstd::Decompressor.
 
 =head2 $decompressor->init() :Undef
 
@@ -54,7 +54,7 @@ Recommended size for input buffer.
 
 =head1 SEE ALSO
 
-L<Compress::Zstd>
+L<Compress::Stream::Zstd>
 
 =head1 LICENSE
 

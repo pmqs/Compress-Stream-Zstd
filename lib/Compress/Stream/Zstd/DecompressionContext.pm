@@ -1,9 +1,9 @@
-package Compress::Zstd::DecompressionContext;
+package Compress::Stream::Zstd::DecompressionContext;
 use 5.008001;
 use strict;
 use warnings;
 
-use Compress::Zstd ();
+use Compress::Stream::Zstd ();
 
 1;
 __END__
@@ -12,24 +12,24 @@ __END__
 
 =head1 NAME
 
-Compress::Zstd::DecompressionContext - Zstd decompression context
+Compress::Stream::Zstd::DecompressionContext - Zstd decompression context
 
 =head1 SYNOPSIS
 
-    use Compress::Zstd::DecompressionContext;
+    use Compress::Stream::Zstd::DecompressionContext;
 
-    my $dctx = Compress::Zstd::DecompressionContext->new;
+    my $dctx = Compress::Stream::Zstd::DecompressionContext->new;
     my $dest = $dctx->compress($src, $level);
 
 =head1 DESCRIPTION
 
-(Experimental) The Compress::Zstd::DecompressionContext module provides Zstd decompression context.
+(Experimental) The Compress::Stream::Zstd::DecompressionContext module provides Zstd decompression context.
 
 =head1 METHODS
 
-=head2 Compress::Zstd::DecompressionContext->new() :Compress::Zstd::DecompressionContext
+=head2 Compress::Stream::Zstd::DecompressionContext->new() :Compress::Stream::Zstd::DecompressionContext
 
-Create an instance of Compress::Zstd::DecompressionContext.
+Create an instance of Compress::Stream::Zstd::DecompressionContext.
 
 =head2 $dctx->decompress($source)
 

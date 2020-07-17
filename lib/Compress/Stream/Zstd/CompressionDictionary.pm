@@ -1,9 +1,9 @@
-package Compress::Zstd::CompressionDictionary;
+package Compress::Stream::Zstd::CompressionDictionary;
 use 5.008001;
 use strict;
 use warnings;
 
-use Compress::Zstd ();
+use Compress::Stream::Zstd ();
 
 sub new_from_file {
     my ($class, $file, $level) = @_;
@@ -21,34 +21,34 @@ __END__
 
 =head1 NAME
 
-Compress::Zstd::CompressionDictionary - Zstd compression dictionary
+Compress::Stream::Zstd::CompressionDictionary - Zstd compression dictionary
 
 =head1 SYNOPSIS
 
-    use Compress::Zstd::CompressionContext;
-    use Compress::Zstd::CompressionDictionary;
+    use Compress::Stream::Zstd::CompressionContext;
+    use Compress::Stream::Zstd::CompressionDictionary;
 
-    my $cdict = Compress::Zstd::CompressionDictionary->new_from_file($filename, $level);
-    my $cctx = Compress::Zstd::CompressionContext->new;
+    my $cdict = Compress::Stream::Zstd::CompressionDictionary->new_from_file($filename, $level);
+    my $cctx = Compress::Stream::Zstd::CompressionContext->new;
     my $dest = $cctx->compress_using_dict($src, $cdict);
 
 =head1 DESCRIPTION
 
-(Experimental) The Compress::Zstd::CompressionDictionary module provides Zstd compression dictionaries.
+(Experimental) The Compress::Stream::Zstd::CompressionDictionary module provides Zstd compression dictionaries.
 
 =head1 METHODS
 
-=head2 Compress::Zstd::CompressionDictionary->new($dict) :Compress::Zstd::CompressionDictionary
+=head2 Compress::Stream::Zstd::CompressionDictionary->new($dict) :Compress::Stream::Zstd::CompressionDictionary
 
-Create an instance of Compress::Zstd::CompressionDictionary.
+Create an instance of Compress::Stream::Zstd::CompressionDictionary.
 
-=head2 Compress::Zstd::CompressionDictionary->new_from_file($filename) :Compress::Zstd::CompressionDictionary
+=head2 Compress::Stream::Zstd::CompressionDictionary->new_from_file($filename) :Compress::Stream::Zstd::CompressionDictionary
 
-Create an instance of Compress::Zstd::CompressionDictionary from file.
+Create an instance of Compress::Stream::Zstd::CompressionDictionary from file.
 
 =head1 SEE ALSO
 
-L<Compress::Zstd>
+L<Compress::Stream::Zstd>
 
 =head1 LICENSE
 

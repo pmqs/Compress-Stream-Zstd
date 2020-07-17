@@ -2,16 +2,16 @@ use strict;
 use warnings;
 
 use Test::More;
-use Compress::Zstd;
-use Compress::Zstd::CompressionContext;
-use Compress::Zstd::DecompressionContext;
+use Compress::Stream::Zstd;
+use Compress::Stream::Zstd::CompressionContext;
+use Compress::Stream::Zstd::DecompressionContext;
 
-my $cctx = Compress::Zstd::CompressionContext->new;
+my $cctx = Compress::Stream::Zstd::CompressionContext->new;
 my $src = 'Hello, World!';
 ok my $compressed = $cctx->compress($src, 3);
 isnt $src, $compressed;
 
-my $dctx = Compress::Zstd::DecompressionContext->new;
+my $dctx = Compress::Stream::Zstd::DecompressionContext->new;
 ok my $decompressed = $dctx->decompress($compressed);
 is $decompressed, $src;
 
