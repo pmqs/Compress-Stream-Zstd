@@ -26,3 +26,4 @@ cover_db/
 MYMETA.*
 
 /Compress-Zstd-*
+private
