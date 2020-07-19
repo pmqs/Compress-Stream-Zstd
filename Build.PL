@@ -41,7 +41,7 @@ my %args = (
         'Test::More' => '0.98',
     },
 
-    name            => 'Compress-Zstd',
+    name            => 'Compress-Stream-Zstd',
     module_name     => 'Compress::Stream::Zstd',
     allow_pureperl => 0,
 
