@@ -1,7 +1,13 @@
-[![Build Status](https://travis-ci.org/spiritloose/Compress-Zstd.svg?branch=master)](https://travis-ci.org/spiritloose/Compress-Zstd)
+[![Actions Status](https://github.com/pmqs/Compress-Stream-Zstd/workflows/Linux%20build/badge.svg)](https://github.com/pmqs/Compress-Stream-Zstd/actions) [![Actions Status](https://github.com/pmqs/Compress-Stream-Zstd/workflows/MacOS%20build/badge.svg)](https://github.com/pmqs/Compress-Stream-Zstd/actions) [![Actions Status](https://github.com/pmqs/Compress-Stream-Zstd/workflows/Windows%20build/badge.svg)](https://github.com/pmqs/Compress-Stream-Zstd/actions) [![Build Status](https://travis-ci.org/pmqs/Compress-Stream-Zstd.svg?branch=master)](https://travis-ci.org/pmqs/Compress-Stream-Zstd)
 # NAME
 
 Compress::Stream::Zstd - Perl interface to the Zstd (Zstandard) (de)compressor
+
+# NOTE
+
+This module is a branch of `Compress::Zstd` that contains extra support for working
+in streaming mode.
+This change has been made to allow the module to work with `IO::Compress::Zstd`.
 
 # SYNOPSIS
 
@@ -79,5 +85,7 @@ On error (in case of corrupted data) undef is returned.
 # AUTHOR
 
 Jiro Nishiguchi <jiro@cpan.org>
+
+Some streaming enhancement by Paul Marquess  <pmqs@cpan.org>
 
 Zstandard by Facebook, Inc.

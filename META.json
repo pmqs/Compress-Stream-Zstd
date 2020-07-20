@@ -4,7 +4,7 @@
       ", Jiro Nishiguchi"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v3.1.6, CPAN::Meta::Converter version 2.150010",
+   "generated_by" : "Minilla/v3.1.10, CPAN::Meta::Converter version 2.150010",
    "license" : [
       "bsd"
    ],
@@ -12,7 +12,7 @@
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
       "version" : 2
    },
-   "name" : "Compress-Zstd",
+   "name" : "Compress-Stream-Zstd",
    "no_index" : {
       "directory" : [
          "t",
@@ -61,20 +61,21 @@
    "release_status" : "unstable",
    "resources" : {
       "bugtracker" : {
-         "web" : "https://github.com/spiritloose/Compress-Zstd/issues"
+         "web" : "https://github.com/pmqs/Compress-Stream-Zstd/issues"
       },
-      "homepage" : "https://github.com/spiritloose/Compress-Zstd",
+      "homepage" : "https://github.com/pmqs/Compress-Stream-Zstd",
       "repository" : {
          "type" : "git",
-         "url" : "git://github.com/spiritloose/Compress-Zstd.git",
-         "web" : "https://github.com/spiritloose/Compress-Zstd"
+         "url" : "git://github.com/pmqs/Compress-Stream-Zstd.git",
+         "web" : "https://github.com/pmqs/Compress-Stream-Zstd"
       }
    },
-   "version" : "0.20",
+   "version" : "0.201",
    "x_contributors" : [
       "Jiro Nishiguchi <jiro@cpan.org>",
-      "Jiro Nishiguchi <spiritloose@users.noreply.github.com>"
+      "Jiro Nishiguchi <spiritloose@users.noreply.github.com>",
+      "pmqs <pmqs@cpan.org>"
    ],
-   "x_serialization_backend" : "JSON::PP version 4.04",
+   "x_serialization_backend" : "JSON::PP version 4.02",
    "x_static_install" : 0
 }

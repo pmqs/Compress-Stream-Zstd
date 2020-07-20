@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use Exporter 'import';
 
-our $VERSION = "0.20";
+our $VERSION = "0.201";
 
 our @EXPORT = qw(
     compress
@@ -27,6 +27,12 @@ __END__
 =head1 NAME
 
 Compress::Stream::Zstd - Perl interface to the Zstd (Zstandard) (de)compressor
+
+=head1 NOTE
+
+This module is a branch of C<Compress::Zstd> that contains extra support for working
+in streaming mode.
+This change has been made to allow the module to work with C<IO::Compress::Zstd>.
 
 =head1 SYNOPSIS
 
@@ -104,6 +110,8 @@ L<http://www.zstd.net/>
 =head1 AUTHOR
 
 Jiro Nishiguchi E<lt>jiro@cpan.orgE<gt>
+
+Some streaming enhancement by Paul Marquess  E<lt>pmqs@cpan.orgE<gt>
 
 Zstandard by Facebook, Inc.
 
