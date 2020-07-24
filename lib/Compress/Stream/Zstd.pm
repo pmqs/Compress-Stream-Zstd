@@ -14,6 +14,7 @@ our @EXPORT = qw(
     ZSTD_VERSION_NUMBER
     ZSTD_VERSION_STRING
     ZSTD_MAX_CLEVEL
+    ZSTD_MIN_CLEVEL
 );
 
 use XSLoader;
@@ -76,6 +77,8 @@ On error (in case of corrupted data) undef is returned.
 =head2 ZSTD_VERSION_STRING
 
 =head2 ZSTD_MAX_CLEVEL
+
+=head2 ZSTD_MIN_CLEVEL
 
 =head1 SEE ALSO
 
