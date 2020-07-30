@@ -5,9 +5,10 @@ Compress::Stream::Zstd - Perl interface to the Zstd (Zstandard) (de)compressor
 
 # NOTE
 
-This module is a branch of `Compress::Zstd` that contains extra support for working
-in streaming mode.
-This change has been made to allow the module to work with `IO::Compress::Zstd`.
+This module is a fork of [Compress-Zstd](https://github.com/spiritloose/Compress-Zstd).
+It contains a few changes to make streaming compression/uncompression more robust.
+The only reason for this fork is to allow the module to work with \`IO-Compress-Zstd\`.
+The hope is that the changes made here can be merged back upstream and this module can be retired.
 
 # SYNOPSIS
 
@@ -51,6 +52,8 @@ On error (in case of corrupted data) undef is returned.
 ## ZSTD\_VERSION\_STRING
 
 ## ZSTD\_MAX\_CLEVEL
+
+## ZSTD\_MIN\_CLEVEL
 
 # SEE ALSO
 
