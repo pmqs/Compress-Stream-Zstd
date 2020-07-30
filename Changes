@@ -1,6 +1,10 @@
-Revision history for Perl extension Compress-Zstd
+Revision history for Perl extension Compress-Stream-Zstd
 
 {{$NEXT}}
+
+0.202 2020-07-30
+    - Add ZSTD_MIN_CLEVEL
+      5039d7e079f68760c86b94ef3fc0b2cf339f84b2
 
 0.201 2020-07-20
     - branch to Cmpress-Stream-Zstd
