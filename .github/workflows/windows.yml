@@ -36,6 +36,12 @@ jobs:
     - name: Install dependencies
       run: cpanm --installdeps --notest .
     - name: Build
-      run: perl Build.PL && perl Build
+      shell: bash
+      run: |
+        echo $PATH
+        type make
+        type gmake
+        perl Build.PL && perl Build
     - name: Test
+      shell: bash
       run: perl Build test
