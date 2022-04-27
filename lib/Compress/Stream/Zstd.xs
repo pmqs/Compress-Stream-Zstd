@@ -244,7 +244,7 @@ CODE:
 
 void
 set_parameter(self, cParam, value)
-    Compress::Zstd::Compressor self;
+    Compress::Stream::Zstd::Compressor self;
     unsigned long cParam;
     int value;
 CODE:
@@ -393,7 +393,7 @@ CODE:
 
 void
 set_parameter(self, dParam, value)
-    Compress::Zstd::Decompressor self;
+    Compress::Stream::Zstd::Decompressor self;
     unsigned long dParam;
     int value;
 CODE:

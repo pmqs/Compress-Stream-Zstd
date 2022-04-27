@@ -2,13 +2,13 @@ use strict;
 use warnings;
 
 use Test::More;
-use Compress::Zstd::Compressor qw(ZSTD_c_windowLog);
-use Compress::Zstd::Decompressor qw(ZSTD_d_windowLogMax);
+use Compress::Stream::Zstd::Compressor qw(ZSTD_c_windowLog);
+use Compress::Stream::Zstd::Decompressor qw(ZSTD_d_windowLogMax);
 
 cmp_ok ZSTD_c_windowLog, '>', 0;
 cmp_ok ZSTD_d_windowLogMax, '>', 0;
 
-my $compressor = Compress::Zstd::Compressor->new;
+my $compressor = Compress::Stream::Zstd::Compressor->new;
 $compressor->set_parameter( ZSTD_c_windowLog, 10 );
 
 my $output = '';
@@ -19,7 +19,7 @@ $output .= $compressor->flush;
 $output .= $compressor->end;
 ok $output;
 
-my $decompressor = Compress::Zstd::Decompressor->new;
+my $decompressor = Compress::Stream::Zstd::Decompressor->new;
 $decompressor->set_parameter( ZSTD_d_windowLogMax, 10);
 
 my $result = '';
