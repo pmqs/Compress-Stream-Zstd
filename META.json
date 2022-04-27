@@ -70,8 +70,9 @@
          "web" : "https://github.com/pmqs/Compress-Stream-Zstd"
       }
    },
-   "version" : "0.202",
+   "version" : "0.203",
    "x_contributors" : [
+      "Felipe Gasper <felipe@felipegasper.com>",
       "Jiro Nishiguchi <jiro@cpan.org>",
       "Jiro Nishiguchi <spiritloose@users.noreply.github.com>",
       "pmqs <pmqs@cpan.org>"
