@@ -37,7 +37,7 @@ jobs:
     - name: Install dependencies
       run: cpanm --installdeps --notest .
     - name: Install Module::Build
-      run: cpanm --quiet Module::Build        
+      run: cpanm --quiet ExtUtils::PL2Bat Module::Build        
     - name: Build
       run: perl Build.PL && perl Build
     - name: Test
