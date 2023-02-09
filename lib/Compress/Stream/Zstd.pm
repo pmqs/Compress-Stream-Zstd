@@ -8,7 +8,6 @@ our $VERSION = "0.203";
 
 our @EXPORT = qw(
     compress
-    compress_mt
     decompress
     uncompress
     ZSTD_VERSION_NUMBER
