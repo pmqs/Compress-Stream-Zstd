@@ -20,6 +20,14 @@ cover_db/
 *.o
 *.obj
 *.c
+*.tar.gz
+
+Makefile
+Makefile.old
+Zstd.bs
+constants.h 
+constants.xs
+pm_to_blib
 
 !LICENSE
 

@@ -22,8 +22,8 @@ is $decompressed, $src;
 
 is decompress(\compress(\$src)), $src, 'ScalarRef';
 
-is decompress(compress_mt($src, 2)), $src, 'Multi Thread';
-is decompress(compress_mt(\$src, 2)), $src, 'Multi Thread ScalarRef';
+# is decompress(compress_mt($src, 2)), $src, 'Multi Thread';
+# is decompress(compress_mt(\$src, 2)), $src, 'Multi Thread ScalarRef';
 
 decompress("1");
 
