@@ -30,7 +30,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Setup perl
-      uses: shogo82148/actions-setup-perl@v3
+      uses: shogo82148/actions-setup-perl@v1
       with:
         perl-version: ${{ matrix.perl }}
     - name: Perl version
