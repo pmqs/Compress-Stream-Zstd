@@ -28,17 +28,17 @@ jobs:
 
     name: Perl ${{ matrix.perl }}
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v3
     - name: Setup perl
-      uses: shogo82148/actions-setup-perl@v1
+      uses: shogo82148/actions-setup-perl@v3
       with:
         perl-version: ${{ matrix.perl }}
     - name: Perl version
       run: perl -V
+    - name: Install Module::Build
+      run: cpanm --quiet Module::Build        
     - name: Install dependencies
       run: cpanm --installdeps --notest .
-    - name: Install Module::Build
-      run: cpanm --quiet --installdeps Module::Build        
     - name: Build
       run: perl Build.PL && perl Build
     - name: Test
