@@ -35,10 +35,10 @@ jobs:
         perl-version: ${{ matrix.perl }}
     - name: Perl version
       run: perl -V
+    - name: Install Module::Build
+      run: cpanm --quiet Module::Build
     - name: Install dependencies
       run: cpanm --quiet --installdeps --notest .
-    - name: Install Module::Build
-      run: cpanm --quiet Module::Build      
     - name: Build
       run: perl Build.PL && perl Build
     - name: Test

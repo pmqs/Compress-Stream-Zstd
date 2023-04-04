@@ -36,7 +36,7 @@ jobs:
     - name: Perl version
       run: perl -V
     - name: Install dependencies
-      run: cpanm --quiet --installdeps --notest .   
+      run: cpanm --quiet --installdeps --notest .
     - name: Build
       run: perl Build.PL && perl Build
     - name: Test
