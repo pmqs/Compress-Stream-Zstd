@@ -21,6 +21,7 @@ cover_db/
 *.o
 *.obj
 *.c
+*.tar.gz
 
 !LICENSE
 
