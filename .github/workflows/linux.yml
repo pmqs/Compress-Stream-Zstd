@@ -51,6 +51,7 @@ jobs:
         run: cpanm --installdeps --notest Module::Build
       - name: Install Module::Build
         run: cpanm --quiet Module::Build
+      - name: Build
         run: perl Build.PL && perl Build
       - name: Test
         run: perl Build test
