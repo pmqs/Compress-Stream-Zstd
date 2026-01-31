@@ -1,5 +1,15 @@
 Revision history for Perl extension Compress-Stream-Zstd
 
+0.217 2026-0-31
+
+  * Merge pull request #7 from pmqs/dependabot/github_actions/actions/checkout-6
+    Fri Jan 30 09:43:34 2026 +0000
+    53404509e8ca138759b0c53e4fc011b8e739ac46
+
+  * Silence clang compiler warnings https://github.com/pmqs/Compress-Stream-Zstd/issues/6
+    Mon Aug 21 11:24:34 2023 +0100
+    55f812d506eebb6273177202754409b15450d516
+
 0.206 2023-04-08
 
   * update to zstandard 1.5.5
