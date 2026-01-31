@@ -45,11 +45,12 @@ jobs:
           perl-version: ${{ matrix.perl }}
       - name: Perl version
         run: perl -V
+      - name: Install dependencies
+        run: cpanm --installdeps --notest .
+      - name: Install Module::Build dependencies
+        run: cpanm --installdeps --notest Module::Build
       - name: Install Module::Build
         run: cpanm --quiet Module::Build
-      - name: Install dependencies
-        run: cpanm --quiet --installdeps --notest .
-      - name: Build
         run: perl Build.PL && perl Build
       - name: Test
         run: perl Build test
