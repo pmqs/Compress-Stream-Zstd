@@ -70,12 +70,13 @@
          "web" : "https://github.com/pmqs/Compress-Stream-Zstd"
       }
    },
-   "version" : "0.217",
+   "version" : "0.207",
    "x_contributors" : [
       "Felipe Gasper <felipe@felipegasper.com>",
       "Jiro Nishiguchi <jiro@cpan.org>",
       "Jiro Nishiguchi <spiritloose@users.noreply.github.com>",
       "Paul Marquess <pmqs@outlook.com>",
+      "dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>",
       "pmqs <pmqs@cpan.org>"
    ],
    "x_serialization_backend" : "JSON::PP version 4.02",
