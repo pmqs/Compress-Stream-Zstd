@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use Exporter 'import';
 
-our $VERSION = "0.207";
+our $VERSION = "0.208";
 
 our @EXPORT = qw(
     compress
@@ -108,7 +108,7 @@ L<http://www.zstd.net/>
 
 Jiro Nishiguchi E<lt>jiro@cpan.orgE<gt>
 
-Some streaming enhancement by Paul Marquess  E<lt>pmqs@cpan.orgE<gt>
+Some streaming enhancement by Paul Marquess  E<lt>pmqs@outlook.comE<gt>
 
 Zstandard by Facebook, Inc.
 

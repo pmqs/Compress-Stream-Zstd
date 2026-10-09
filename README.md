@@ -83,6 +83,6 @@ On error (in case of corrupted data) undef is returned.
 
 Jiro Nishiguchi <jiro@cpan.org>
 
-Some streaming enhancement by Paul Marquess  <pmqs@cpan.org>
+Some streaming enhancement by Paul Marquess  <pmqs@outlook.com>
 
 Zstandard by Facebook, Inc.
